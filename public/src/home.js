@@ -39,16 +39,6 @@ return Object.entries(total)// Object.entries is like a for in loop
 .slice(0, 5);
 }
 
-/*function getMostCommonGenres(books) {
-   let total = {};
-   books.forEach((num) => {
-   if (total[num.genre]) {
-   total[num.genre]++;
-   } else {
-   total[num.genre] = 1;
-   }
-   });
-}*/
 
 //========================================================================//
 
