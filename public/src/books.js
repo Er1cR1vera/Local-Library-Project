@@ -8,7 +8,7 @@ function findAuthorById(authors, id) {
 
 function findBookById(books, id) {
    const result = books.find((book)=> book.id === id);
-   return result; // return 
+   return result;
 }
 
 

@@ -2,9 +2,7 @@ function getTotalBooksCount(books) {
  return books.length //length returns number of books from the books array 
 }
 
-
 //==================================================================//
-
 
 function getTotalAccountsCount(accounts) {
   return accounts.length // returns number of accounts using .length
@@ -14,20 +12,12 @@ function getTotalAccountsCount(accounts) {
 
 
 function getBooksBorrowedCount(books) {
-  // go into the books array and return borrowed count 
-  //returns a number 
-  // if the book hasnt been returned return false(boolean)
-  //if the conditional is true than return the array of books checked out
-  let borrowedBooks = books.filter(   // use filter to make an array of borrowed books
-   (book)=> 
-   book.borrows.filter((record) => record.returned === false).length > 0);
-   return borrowedBooks.length;
+  return books.reduce((acc, book) => {
+    return book.borrows.filter(borrow => !borrow.returned).length + acc
+  }, 0)
   }
 
-
   //==========================================================================//
-
-
 
 function getMostCommonGenres(books) {
   let total = {};
@@ -49,9 +39,18 @@ return Object.entries(total)// Object.entries is like a for in loop
 .slice(0, 5);
 }
 
+/*function getMostCommonGenres(books) {
+   let total = {};
+   books.forEach((num) => {
+   if (total[num.genre]) {
+   total[num.genre]++;
+   } else {
+   total[num.genre] = 1;
+   }
+   });
+}*/
 
 //========================================================================//
-
 
 function getMostPopularBooks(books) {
   return books
@@ -62,9 +61,7 @@ function getMostPopularBooks(books) {
   .slice(0, 5);
 }
 
-
 //===========================================================//
-
 
 function getMostPopularAuthors(books, authors) {
   let result = [];
